@@ -1,1 +1,1 @@
-var owMemberKey = "508c45685c54e0750733e07a9d286ab4";
+var owApiKey = "508c45685c54e0750733e07a9d286ab4";
