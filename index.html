@@ -15,23 +15,17 @@
     </header>
 
 
-    <!-- <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand">Navbar</a>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav> -->
-
     <!-- Main container -->
     <main class="row">
-        <!-- Div for search & recent searches -->
+
+        <!-- Container for search & recent searches -->
         <div class="col-12 col-md-3">
+
             <!-- Search for city -->
             <div class="card bg-color-light mt-2 ml-3">
                 <h3 class="card-header bg-secondary text-light">Search for a city</h3>
                 <form class="input-group m-2" id="searchForm">
-                    <input type="text" class="form-input input-group-text col-9 mr-2" id="city" name="city" />
+                    <input type="text" class="form-input input-group-text col-9 mr-2" id="cityInput" name="city" />
                     <button type="submit" class="btn btn-info" id="searchBtn"><i class="fas fa-search-location"></i></button>
                 </form>
             </div>
@@ -50,17 +44,26 @@
         </div>
 
         <!-- Div for current weather & five day forecast -->
-        <div class="col-12 col-md-9 city-forecast d-none">
+        <div class="col-12 col-md-9 city-forecast"> <!--d-none-->
+
             <!-- Current weather -->
             <div class="card bg-color-light mt-4 mr-4 ml-3 current-weather">
-                <h3 class="card-header bg-secondary text-light">Current forecast</h3>
+                <h3 class="card-header bg-secondary text-light">Current Forecast</h3>
                 <h4 class="mt-3 ml-3 city-name">City name</h4>
                 <!-- Current weather info -->
-                <div class="p-3">
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet quibusdam maxime necessitatibus sunt magni labore, nulla atque tempora asperiores dolores!
+             
+                    <!-- <p class="weather-info pl-3 mt-1">
+                        Current Temperature: <span id="currentTemp"></span>
                     </p>
-                </div>
+                    <p class="weather-info pl-3">
+                        Feels Like: <span id="currentFeelsLike"></span>
+                    </p>
+                    <p class="weather-info pl-3">
+                        High: <span id="currentHighTemp"></span>
+                    </p>
+                    <p class="weather-info pl-3">
+                        Low: <span id="currentLowTemp"></span>
+                    </p> -->
             </div>
 
             <!-- Five day forecast -->
