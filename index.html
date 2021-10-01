@@ -41,62 +41,113 @@
                     <li class="list-group-item">City</li>
                 </ul>
             </div>
+
         </div>
 
-        <!-- Div for current weather & five day forecast -->
-        <div class="col-12 col-md-9 city-forecast"> <!--d-none-->
 
-            <!-- Current weather -->
-            <div class="card bg-color-light mt-4 mr-4 ml-3 current-weather">
-                <h3 class="card-header bg-secondary text-light">Current Forecast</h3>
-                <h4 class="mt-3 ml-3 city-name">City name</h4>
-                <!-- Current weather info -->
-             
-                    <!-- <p class="weather-info pl-3 mt-1">
-                        Current Temperature: <span id="currentTemp"></span>
-                    </p>
-                    <p class="weather-info pl-3">
-                        Feels Like: <span id="currentFeelsLike"></span>
-                    </p>
-                    <p class="weather-info pl-3">
-                        High: <span id="currentHighTemp"></span>
-                    </p>
-                    <p class="weather-info pl-3">
-                        Low: <span id="currentLowTemp"></span>
-                    </p> -->
+
+        <!-- new container -->
+        <div class="col-12 col-md-9 city-forecast"> <!--d-none-->
+                 
+            <h3 class="card-header bg-secondary text-light  mt-4 mr-4 ml-3">Current Forecast</h3>
+            <!--current weather container -->
+            <div class="container card bg-color-light mt-4 mr-4 ml-3 current-weather">
+                <div class="row">
+                     <!--city name-->
+                    <span class=" col-12 mt-3 ml-4 city-name"></span>
+                </div>
+
+                <!-- current temp, high, low-->
+                <div class="row">
+                    <div class="col-6">
+                        <p class="weather-info pl-3">
+                            <span id="currentTemp"></span>
+                        </p>
+                        <p class="weather-info pl-3">
+                            <span id="currentFeelsLike"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentDescription"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentHumidity"></span>
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="weather-info pl-3">
+                            <span id="currentHighTemp"></span>
+                        </p>
+                        <p class="weather-info pl-3">
+                            <span id="currentLowTemp"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentWind"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentUvIndex"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Five day forecast -->
-            <div class="card bg-color-light mt-4 mr-4 ml-3"class="card bg-color-light mt-4 mr-4 ml-3">
-                <h3 class="card-header bg-secondary text-light">Five day forecast</h3>
-                <!-- Container to hold five day forecast info -->
-                <div class="p-2">
-                    <!-- Div for info -->
-                    <div class="row row-cols-1 row-cols-md-5">
-                        <!-- One -->
-                        <div class="col">
-                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">Day 1 of 5</div>
+            <div class="container p-2">
+                <div class="row row-cols-1 row-cols-md-5">
+                    <!-- One -->
+                    <div class="col">
+                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                            <p class="m-1" id="dayOne"></p>
+                            <p class="m-1" id="tempOne"></p>
+                            <p class="m-1" id="highOne"></p>
+                            <p class="m-1" id="lowOne"></p>
+                            <p class="m-1" id="humidOne"></p>
                         </div>
-                        <!-- Two -->
-                        <div class="col">
-                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">Day 2 of 5</div>
-                        </div >
-                        <!-- Three -->
-                        <div class="col">
-                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">Day 3 of 5</div>
+                    </div>
+                    <!-- Two -->
+                    <div class="col">
+                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                            <p class="m-1" id="dayTwo"></p>
+                            <p class="m-1" id="tempTwo"></p>
+                            <p class="m-1" id="highTwo"></p>
+                            <p class="m-1" id="lowTwo"></p>
+                            <p class="m-1" id="humidTwo"></p>
                         </div>
-                        <!-- Four -->
-                        <div class="col">
-                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">Day 4 of 5</div>
+                    </div>
+                    <!-- Three -->
+                    <div class="col">
+                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                            <p class="m-1" id="dayThree"></p>
+                            <p class="m-1" id="tempThree"></p>
+                            <p class="m-1" id="highThree"></p>
+                            <p class="m-1" id="lowThree"></p>
+                            <p class="m-1" id="humidThree"></p>
                         </div>
-                        <!-- Five -->
-                        <div class="col">
-                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">Day 5 of 5</div>
+                    </div>
+                    <!-- Four -->
+                    <div class="col">
+                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                            <p class="m-1" id="dayFour"></p>
+                            <p class="m-1" id="tempFour"></p>
+                            <p class="m-1" id="highFour"></p>
+                            <p class="m-1" id="lowFour"></p>
+                            <p class="m-1" id="humidFour"></p>
+                        </div>
+                    </div>
+                    <!-- Five -->
+                    <div class="col">
+                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                            <p class="m-1" id="dayFive"></p>
+                            <p class="m-1" id="tempFive"></p>
+                            <p class="m-1" id="highFive"></p>
+                            <p class="m-1" id="lowFive"></p>
+                            <p class="m-1" id="humidFive"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
     </main>
 

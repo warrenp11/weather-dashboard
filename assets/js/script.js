@@ -7,8 +7,35 @@ var fiveDayWeatherApi = "https://api.openweathermap.org/data/2.5/forecast?q={cit
 var citySearchEl = document.querySelector("#cityInput");
 var searchBtnEl = document.querySelector("#searchBtn");
 var cityNameEl = document.querySelector(".city-name");
-var currentWeatherEl = document.querySelector(".current-weather")
-var cityForecastEl = document.querySelector(".city-forecast")
+var currentWeatherEl = document.querySelector(".current-weather");
+var cityForecastEl = document.querySelector(".city-forecast");
+
+// current forecast elements
+var currentTempEl = document.querySelector("#currentTemp");
+var currentFeelsLikeEl = document.querySelector("#currentFeelsLike");
+var currentDescriptionEl = document.querySelector("#currentDescription");
+var currentHumidityEl = document.querySelector("#currentHumidity");
+var currentHighTempEl = document.querySelector("#currentHighTemp");
+var currentLowTempEl = document.querySelector("#currentLowTemp");
+var currentWindEl = document.querySelector("#currentWind");
+var currentUvIndexEl = document.querySelector("#currentUvIndex");
+
+// five day forecast elements
+var tempOneEl = document.querySelector("#tempOne");
+var highOneEl = document.querySelector("#highOne");
+var lowOneEl = document.querySelector("#lowOne");
+var humidOneEl = document.querySelector("#humidOne");
+
+var tempTwoEl = document.querySelector("#tempTwo");
+var highTwoEl = document.querySelector("#highTwo");
+var lowTwoEl = document.querySelector("#lowTwo");
+var humidTwoEl = document.querySelector("#humidTwo");
+
+
+
+
+
+
 
 
 // Search handler
@@ -33,10 +60,12 @@ var getCoord = function(city) {
     fetch(currentWeatherApi).then(function(response){
         if(response.ok) {
             response.json().then(function(data){
-                // console.log(data);
+                console.log(data);
                 var lat = data.coord["lat"];
                 var lon = data.coord["lon"];
-
+                var searchedCityName = data.name;
+                // console.log(data.name);
+                getName(searchedCityName);
                 getForecast(lat, lon);
             });
         } else {
@@ -63,6 +92,12 @@ var getForecast = function(lat, lon) {
     });
 };
 
+var getName = function(name) {
+    var cityResult = document.createElement('h4');
+    cityResult.textContent = `${name}`;
+    cityNameEl.appendChild(cityResult);
+}
+
 var displayForecast = function(forecast) {
 
     cityForecastEl.classList.remove = "d-none";
@@ -71,57 +106,74 @@ var displayForecast = function(forecast) {
     var currentTemp = document.createElement('p');
     currentTemp.classList = "weather-info pl-3 mt-1";
     currentTemp.textContent = `Current Temperature: ${forecast.current['temp']}`;
-    currentWeatherEl.appendChild(currentTemp);
+    currentTempEl.appendChild(currentTemp);
 
     // Feels like
     var currentFeelsLike = document.createElement('p');
     currentFeelsLike.classList = "weather-info pl-3";
     currentFeelsLike.textContent = `Feels Like: ${forecast.current['feels_like']}`;
-    currentWeatherEl.appendChild(currentFeelsLike);
+    currentFeelsLikeEl.appendChild(currentFeelsLike);
 
     // High Temp
     var currentHighTemp = document.createElement('p');
     currentHighTemp.classList = "weather-info pl-3";
     currentHighTemp.textContent = `High: ${forecast.daily[0].temp['max']}`;
-    currentWeatherEl.appendChild(currentHighTemp);
+    currentHighTempEl.appendChild(currentHighTemp);
 
     // Low Temp
     var currentLowTemp = document.createElement('p');
     currentLowTemp.classList = "weather-info pl-3";
     currentLowTemp.textContent = `Low: ${forecast.daily[0].temp['min']}`;
-    currentWeatherEl.appendChild(currentLowTemp);
+    currentLowTempEl.appendChild(currentLowTemp);
 
-    // // Description
-    // var currentDescription = document.createElement('p');
-    // currentDescription.classList = "weather-info";
-    // currentDescription.textContent = `Conditions: ${forecast.current.weather[0]['description']}`;
-    // currentWeatherEl.appendChild(currentDescription);
+    // Description
+    var currentDescription = document.createElement('p');
+    currentDescription.classList = "weather-info";
+    currentDescription.textContent = `Conditions: ${forecast.current.weather[0]['description']}`;
+    currentDescriptionEl.appendChild(currentDescription);
 
-    // // Humidity
-    // var currentHumidity = document.createElement('p');
-    // currentHumidity.classList = "weather-info";
-    // currentHumidity.textContent = `Humidity: ${forecast.current['humidity']}%`;
-    // currentWeatherEl.appendChild(currentHumidity);
+    // Humidity
+    var currentHumidity = document.createElement('p');
+    currentHumidity.classList = "weather-info";
+    currentHumidity.textContent = `Humidity: ${forecast.current['humidity']}%`;
+    currentHumidityEl.appendChild(currentHumidity);
 
-    // // Wind Speed
-    // var currentWind = document.createElement('p');
-    // currentWind.classList = 'weather-info';
-    // currentWind.textContent = `Wind Speed: ${forecast.current['wind_speed']} MPH`;
-    // currentWeatherEl.appendChild(currentWind);
+    // Wind Speed
+    var currentWind = document.createElement('p');
+    currentWind.classList = 'weather-info';
+    currentWind.textContent = `Wind Speed: ${forecast.current['wind_speed']} MPH`;
+    currentWindEl.appendChild(currentWind);
 
-    // // UV Index
-    // var currentUvIndex = document.createElement('p');
-    // currentUvIndex.classList = 'pl-3 weather-info';
-    // currentUvIndex.textContent = `UV Index: ${forecast.current['uvi']}`;
-    // currentWeatherEl.appendChild(currentUvIndex);
+    // UV Index
+    var currentUvIndex = document.createElement('p');
+        currentUvIndex.classList = 'weather-info';
+        currentUvIndex.textContent = "UV Index: ";
 
+        var indexBadge = document.createElement('span');
+            indexBadge.classList = "badge";
+            indexBadge.textContent = `${forecast.current['uvi']}`;
+
+                if (`${forecast.current['uvi']}` <= 2) {
+                    indexBadge.classList = "badge-light p-1";
+                } else if (`${forecast.current['uvi']}` <= 5) {
+                    indexBadge.classList = "badge-success p-1";
+                } else if (`${forecast.current['uvi']}` <= 7) {
+                    indexBadge.classList = "badge-warning p-1";
+                } else if (`${forecast.current['uvi']}` <= 10) {
+                    indexBadge.classList = "badge-danger p-1";
+                } else {
+                    indexBadge.classList = "badge-dark p-1";
+                }
+
+    currentUvIndex.appendChild(indexBadge);
+    currentUvIndexEl.appendChild(currentUvIndex);
 };
 
 getCoord("Metuchen");
 
 
 // Event listener for search button
-searchBtnEl.addEventListener("submit", searchHandler);
+searchBtnEl.addEventListener("click", searchHandler);
 
 
 
