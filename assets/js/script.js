@@ -38,6 +38,7 @@ var humidTwoEl = document.querySelector("#humidTwo");
 
 
 
+
 // Search handler
 var searchHandler = function(event) {
     event.preventDefault();

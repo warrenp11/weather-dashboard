@@ -46,18 +46,20 @@
 
 
 
-        <!-- new container -->
-        <div class="col-12 col-md-9 city-forecast"> <!--d-none-->
-                 
+        <!-- WEATHER INFO CONTAINER -->
+        <div class="col-12 col-md-9" id="weather-data"> <!--d-none-->
+            
+            <!-- CURRENT WEATHER HEADER -->
             <h3 class="card-header bg-secondary text-light  mt-4 mr-4 ml-3">Current Forecast</h3>
-            <!--current weather container -->
+            
+            <!--CURRENT WEATHER CONTAINER -->
             <div class="container card bg-color-light mt-4 mr-4 ml-3 current-weather">
                 <div class="row">
-                     <!--city name-->
-                    <span class=" col-12 mt-3 ml-4 city-name"></span>
+                     <!-- DISPLAYS CITY NAME -->
+                    <span class=" col-12 mt-3 ml-4" id="city-name"></span>
                 </div>
 
-                <!-- current temp, high, low-->
+                <!-- DISPLAYS CURRENT TEMP, FEELS LIKE, HIGH, AND LOW -->
                 <div class="row">
                     <div class="col-6">
                         <p class="weather-info pl-3">
@@ -66,20 +68,20 @@
                         <p class="weather-info pl-3">
                             <span id="currentFeelsLike"></span>
                         </p>
-                        <p class="weather-info pl-4">
-                            <span id="currentDescription"></span>
-                        </p>
-                        <p class="weather-info pl-4">
-                            <span id="currentHumidity"></span>
-                        </p>
-                    </div>
-
-                    <div class="col-6">
                         <p class="weather-info pl-3">
                             <span id="currentHighTemp"></span>
                         </p>
                         <p class="weather-info pl-3">
                             <span id="currentLowTemp"></span>
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="weather-info pl-4">
+                            <span id="currentDescription"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentHumidity"></span>
                         </p>
                         <p class="weather-info pl-4">
                             <span id="currentWind"></span>
@@ -88,8 +90,10 @@
                             <span id="currentUvIndex"></span>
                         </p>
                     </div>
-                </div>
-            </div>
+
+                </div><!--END ROW-->
+
+            </div><!-- END CURRENT WEATHER CONTAINER -->
 
             <div class="container p-2">
                 <div class="row row-cols-1 row-cols-md-5">
@@ -145,14 +149,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+        </div><!-- END WEATHER INFO CONTAINER-->
 
 
 
     </main>
 
     <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+    <script src="testing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
 </body>
