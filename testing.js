@@ -72,7 +72,7 @@ var getForecastData = function(lat, lon) {
     fetch(forecastApi).then(function(response) {
         if(response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                // console.log(data);
                 // console.log(data.current.weather[0]['description']);
                 currentWeather(data);
                 // send info to fiveDayWeather
@@ -169,8 +169,6 @@ var currentWeather = function(data) {
 var fiveDayWeather = function(data) {
     // format data to get: date
     // ** date = current date + 1...etc
-
-    // display data in five day forecast container
 
     // DAY ONE
     // DAY_ONE_TEMP
