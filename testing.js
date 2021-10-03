@@ -8,6 +8,7 @@ var fiveDayWeatherApi = "https://api.openweathermap.org/data/2.5/forecast?q={cit
 
 // DOCUMENT_ELEMENTS
 var weatherDataEl = document.querySelector("#weather-data");
+var cityNameEl = document.querySelector("#city-name");
 // ** CURRENT_WEATHER_DOC_ELEMENTS
 var currentTempEl = document.querySelector("#currentTemp");
 var currentFeelsLikeEl = document.querySelector("#currentFeelsLike");
@@ -38,7 +39,31 @@ var tempFiveEl = document.querySelector("#tempFive");
 var highFiveEl = document.querySelector("#highFive");
 var lowFiveEl = document.querySelector("#lowFive");
 var humidFiveEl = document.querySelector("#humidFive");
+// **SEARCH_HANDLER_ELEMENT
+var citySearchEl = document.querySelector("#cityInput");
+var searchBtnEl = document.querySelector("#searchBtn");
 
+// **GLOBAL_VARIABLES
+var cityArr = [];
+
+
+
+
+
+// SEARCH_HANDLER
+var searchHandler = function(event) {
+    event.preventDefault();
+    
+    var citySearch = citySearchEl.value.trim();
+    
+    if (citySearch) {
+        getCoordinates(citySearch);
+        citySearchEl.value = "";
+        saveRecentCity(citySearch); // !!!!!!!!!!!!!!!!!!!!!!
+    } else {
+        alert("Please enter a city");
+    }
+};
 
 // GET LAT AND LON AND CITY NAME FROM USER SEARCH IN ORDER TO GET 5-DAY FORECAST
 var getCoordinates = function(city) {
@@ -53,8 +78,15 @@ var getCoordinates = function(city) {
                 var searchedCityName = data.name;
                 // console.log(data.name);
 
-                getName(searchedCityName);
+                displayCityName(searchedCityName);
                 getForecastData(lat, lon);
+
+                if (document.querySelector(".city-list")) {
+                    document.querySelector(".city-list").remove();
+                }
+
+                saveRecentCity(city);
+                loadRecentCities();
             });
         } else {
             alert(`Error: ${response.statusText}`);
@@ -87,7 +119,8 @@ var getForecastData = function(lat, lon) {
 };
 
 // DISPLAYS SELECTED CITY'S NAME AT TOP OF CURRENT FORECAST CONTAINER
-var getName = function(name) {
+var displayCityName = function(name) {
+
     var cityName = document.createElement('h4');
     cityName.textContent = `${name}`;
     var cityNameEl = document.querySelector("#city-name");
@@ -254,9 +287,51 @@ var fiveDayWeather = function(data) {
 
     var dayFiveHumidity = document.createElement('p');
     dayFiveHumidity.textContent = `Humidity: ${data.daily[5].humidity}%`;
-    humidFiveEl.appendChild(dayFiveHumidity);
+    humidFiveEl.appendChild(dayFiveHumidity);    
+};
+
+var saveRecentCity = function(city) {
+    cityArr.push(city);
+    localStorage.setItem("recent", JSON.stringify(cityArr));
+};
+
+var loadRecentCities = function() {
+    cityArr = JSON.parse(localStorage.getItem("recent"));
+    console.log(cityArr);
+
+    if (cityArr === null) {
+        cityArr = [];
+        return false;
+    } else if (cityArr.length > 5) {
+        cityArr.shift();
+    }
+
+    var recentCities = document.querySelector("#recent-cities");
+    var recentCitiesList = document.createElement("ul");
+    recentCitiesList.className = "list-group list-group-flush city-list";
+    recentCities.appendChild(recentCitiesList);
     
+    for (var i = 0; i < cityArr.length; i++) {
+        var prevSearchedCity = document.createElement('button');
+        prevSearchedCity.setAttribute('type', 'button');
+        prevSearchedCity.className = 'list-group-item';
+        prevSearchedCity.setAttribute('value', cityArr[i]);
+        prevSearchedCity.textContent = cityArr[i];
+        recentCitiesList.prepend(prevSearchedCity);
+        }
     
+    var cityList = document.querySelector('.city-list');
+    cityList.addEventListener('click', selectRecentCity)
+};
+
+var selectRecentCity = function(event) {
+    var clickRecentCity = event.target.getAttribute('value');
+    getCoordinates(clickRecentCity);
 }
 
-getCoordinates("Metuchen");
+loadRecentCities();
+// getCoordinates();
+
+
+// EVENT_LISTENERS
+searchBtnEl.addEventListener("click", searchHandler);
