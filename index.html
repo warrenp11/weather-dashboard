@@ -31,33 +31,29 @@
             </div>
 
             <!-- List of recent searches -->
-            <div class="card bg-color-light mt-5 ml-3">
+            <div class="card bg-color-light mt-5 ml-3" id="recent-cities">
                 <h3 class="card-header bg-secondary text-light">Recent searches</h3>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">City</li>
-                    <li class="list-group-item">City</li>
-                    <li class="list-group-item">City</li>
-                    <li class="list-group-item">City</li>
-                    <li class="list-group-item">City</li>
-                </ul>
+               
             </div>
 
         </div>
 
 
 
-        <!-- new container -->
-        <div class="col-12 col-md-9 city-forecast"> <!--d-none-->
-                 
+        <!-- WEATHER INFO CONTAINER -->
+        <div class="col-12 col-md-9" id="weather-data"> <!--d-none-->
+            
+            <!-- CURRENT WEATHER HEADER -->
             <h3 class="card-header bg-secondary text-light  mt-4 mr-4 ml-3">Current Forecast</h3>
-            <!--current weather container -->
+            
+            <!--CURRENT WEATHER CONTAINER -->
             <div class="container card bg-color-light mt-4 mr-4 ml-3 current-weather">
                 <div class="row">
-                     <!--city name-->
-                    <span class=" col-12 mt-3 ml-4 city-name"></span>
+                     <!-- DISPLAYS CITY NAME -->
+                    <span class=" col-12 mt-3 ml-4" id="city-name"></span>
                 </div>
 
-                <!-- current temp, high, low-->
+                <!-- DISPLAYS CURRENT TEMP, FEELS LIKE, HIGH, AND LOW -->
                 <div class="row">
                     <div class="col-6">
                         <p class="weather-info pl-3">
@@ -66,20 +62,20 @@
                         <p class="weather-info pl-3">
                             <span id="currentFeelsLike"></span>
                         </p>
-                        <p class="weather-info pl-4">
-                            <span id="currentDescription"></span>
-                        </p>
-                        <p class="weather-info pl-4">
-                            <span id="currentHumidity"></span>
-                        </p>
-                    </div>
-
-                    <div class="col-6">
                         <p class="weather-info pl-3">
                             <span id="currentHighTemp"></span>
                         </p>
                         <p class="weather-info pl-3">
                             <span id="currentLowTemp"></span>
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="weather-info pl-4">
+                            <span id="currentDescription"></span>
+                        </p>
+                        <p class="weather-info pl-4">
+                            <span id="currentHumidity"></span>
                         </p>
                         <p class="weather-info pl-4">
                             <span id="currentWind"></span>
@@ -88,71 +84,94 @@
                             <span id="currentUvIndex"></span>
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <div class="container p-2">
-                <div class="row row-cols-1 row-cols-md-5">
-                    <!-- One -->
-                    <div class="col">
-                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
-                            <p class="m-1" id="dayOne"></p>
-                            <p class="m-1" id="tempOne"></p>
-                            <p class="m-1" id="highOne"></p>
-                            <p class="m-1" id="lowOne"></p>
-                            <p class="m-1" id="humidOne"></p>
+                </div><!--END ROW-->
+
+            </div><!-- END CURRENT WEATHER CONTAINER -->
+
+            <!-- FIVE DAY FORECAST CONTAINER -->
+            <div class="card bg-color-light mt-4">
+                <h3 class="card-header bg-secondary text-light">Five Day Forecast</h3>
+                <div class="container p-3">
+                    <div class="row row-cols-1 row-cols-md-5">
+                        <!-- DAY ONE -->
+                        <div class="col">
+                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                                <p class="font-weight-bold mb-1" id="date-1">DATE</p>
+                            </div>
+                            <div class="card bg-light text-dark p-2 mb-3 mb-md-0">
+                                <p class="mb-1" id="tempOne"></p>
+                                <p class="mb-1" id="highOne"></p>
+                                <p class="mb-1" id="lowOne"></p>
+                                <p class="mb-1" id="humidOne"></p>
+                            </div>    
+                                
+                            
                         </div>
-                    </div>
-                    <!-- Two -->
-                    <div class="col">
-                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
-                            <p class="m-1" id="dayTwo"></p>
-                            <p class="m-1" id="tempTwo"></p>
-                            <p class="m-1" id="highTwo"></p>
-                            <p class="m-1" id="lowTwo"></p>
-                            <p class="m-1" id="humidTwo"></p>
+                        <!-- DAY TWO -->
+                        <div class="col">
+                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                                <p class="font-weight-bold mb-1" id="date-2">DATE</p>
+                                
+                            </div>
+                            <div class="card bg-light text-dark p-2 mb-3 mb-md-0">
+                                <p class="mb-1" id="tempTwo"></p>
+                                <p class="mb-1" id="highTwo"></p>
+                                <p class="mb-1" id="lowTwo"></p>
+                                <p class="mb-1" id="humidTwo"></p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Three -->
-                    <div class="col">
-                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
-                            <p class="m-1" id="dayThree"></p>
-                            <p class="m-1" id="tempThree"></p>
-                            <p class="m-1" id="highThree"></p>
-                            <p class="m-1" id="lowThree"></p>
-                            <p class="m-1" id="humidThree"></p>
+                        <!-- DAY THREE -->
+                        <div class="col">
+                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                                <p class="font-weight-bold mb-1" id="date-3">DATE</p>
+                                
+                            </div>
+                            <div class="card bg-light text-dark p-2 mb-3 mb-md-0">
+                                <p class="m-1" id="tempThree"></p>
+                                <p class="mb-1" id="highThree"></p>
+                                <p class="mb-1" id="lowThree"></p>
+                                <p class="mb-1" id="humidThree"></p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Four -->
-                    <div class="col">
-                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
-                            <p class="m-1" id="dayFour"></p>
-                            <p class="m-1" id="tempFour"></p>
-                            <p class="m-1" id="highFour"></p>
-                            <p class="m-1" id="lowFour"></p>
-                            <p class="m-1" id="humidFour"></p>
+                        <!-- DAY FOUR -->
+                        <div class="col">
+                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                                <p class="font-weight-bold mb-1" id="date-4">DATE</p>
+                                
+                            </div>
+                            <div class="card bg-light text-dark p-2 mb-3 mb-md-0">
+                                <p class="mb-1" id="tempFour"></p>
+                                <p class="mb-1" id="highFour"></p>
+                                <p class="mb-1" id="lowFour"></p>
+                                <p class="mb-1" id="humidFour"></p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Five -->
-                    <div class="col">
-                        <div class="card bg-info text-light p-2 mb-3 mb-md-0">
-                            <p class="m-1" id="dayFive"></p>
-                            <p class="m-1" id="tempFive"></p>
-                            <p class="m-1" id="highFive"></p>
-                            <p class="m-1" id="lowFive"></p>
-                            <p class="m-1" id="humidFive"></p>
+                        <!-- DAY FIVE -->
+                        <div class="col">
+                            <div class="card bg-info text-light p-2 mb-3 mb-md-0">
+                                <p class="font-weight-bold mb-1" id="date-5">DATE</p>
+                                
+                            </div>
+                            <div class="card bg-light text-dark p-2 mb-3 mb-md-0">
+                                <p class="mb-1" id="tempFive"></p>
+                                <p class="mb-1" id="highFive"></p>
+                                <p class="mb-1" id="lowFive"></p>
+                                <p class="mb-1" id="humidFive"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div><!-- END FIVE DAY FORECAST CONTAINER -->
+
+        </div><!-- END WEATHER INFO CONTAINER-->
 
 
 
     </main>
 
     <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
 </body>
