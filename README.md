@@ -6,17 +6,18 @@ This weather dashboard was designed as a homework assignment for Rutgers Coding 
 This application was written from scratch, no base code was provided.
 
 ## Description
-<!--A user can search for a city and then will be shown that city's current weather (with additional information) as well as a 5-day forecast. Recent searches will be saved and can be clicked to return to that city's weather forecast.-->
+A user can search for a city and then will be shown that city's current weather (with additional information) as well as a 5-day forecast. Recent searches will be saved and can be clicked to return to that city's weather forecast.
 
 ## Instructions
+Enter a city in the search bar (on left side of page) to receive that day's forecast as well as a 5-day forecast.
 
 ## Installation
-
-## Screenshots
+No installation required.
 
 ## Features
 * HTML
 * JavaScript
+* CSS 
 
 ## Websites
 * GibHub: https://github.com/warrenp11/weather-dashboard
@@ -36,6 +37,7 @@ This application was written from scratch, no base code was provided.
 * THEN I am again presented with current and future conditions for that city
 
 ## Project Insight
+This project is not 100% complete but it is functional (mostly). I intend to revist this project and make improvements-- time permitting.
 
 ## Author
 Peter Warren
