@@ -21,7 +21,7 @@ No installation required.
 
 ## Websites
 * GibHub: https://github.com/warrenp11/weather-dashboard
-* Deployed: 
+* Deployed: https://warrenp11.github.io/weather-dashboard/
 
 ## Acceptance Criteria
 * GIVEN a weather dashboard with form inputs
